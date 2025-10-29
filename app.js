@@ -46,7 +46,7 @@ app.get("/listing/new", async(req,res)=>{
 })
 
 //show route to show details of a particular listing
-app.get("/listing/:id", async(req,res)=>{
+app.get("/listings/:id", async(req,res)=>{
     let {id} = req.params; 
     const listing = await Listing.findById(id);
 
@@ -75,7 +75,7 @@ app.get("/listings/:id/edit",async(req,res)=>{
 app.put("/listings/:id",async(req,res)=>{
     let {id}=req.params;
     await Listing.findByIdAndUpdate(id,{...req.body.listing})
-    res.redirect(`/listing/${id}`);
+    res.redirect(`/listings/${id}`);
 });
 
 
